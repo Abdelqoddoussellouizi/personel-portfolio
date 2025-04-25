@@ -1,0 +1,439 @@
+/* ===== Basic Reset & Setup ===== */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: #f4c363;
+  overflow-x: hidden;
+  cursor: default;
+}
+
+.hero-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+}
+
+/* ===== Eye Styles ===== */
+.eye-wrapper {
+  display: inline-block;
+  width: 120px;
+  height: 60px;
+  background: white;
+  border-radius: 60px;
+  position: relative;
+  overflow: hidden;
+  margin: 0 8px;
+}
+
+.eye {
+  width: 60px;
+  height: 60px;
+  background: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 30px;
+  transition: 0.1s ease;
+}
+
+/* ===== Name Text ===== */
+.name {
+  font-size: 6rem;
+  color: #111;
+  font-weight: 800;
+  letter-spacing: 0.5rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+/* ===== Marquee Bar ===== */
+.marquee {
+  background: black;
+  color: #f4c363;
+  font-weight: bold;
+  padding: 1rem 0;
+  margin-top: 2rem;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee span {
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 100%;
+  animation: scroll-left 20s linear infinite;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* ===== Scroll Down Icon ===== */
+.scroll-down {
+  font-size: 2rem;
+  margin-top: 2rem;
+  animation: bounce 2s infinite;
+  color: #111;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+/* ===== Navigation Buttons ===== */
+.nav-buttons {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.nav-buttons button {
+  font-size: 1.6rem;
+  background: #111;
+  color: #f4c363;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.nav-buttons button:hover {
+  background: #f4c363;
+  color: #111;
+}
+
+/* 'O' Circle Styling */
+.circle {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: white;
+  border-radius: 50%;
+  color: black;
+  font-weight: bold;
+  margin: 0 5px;
+  text-align: center;
+  line-height: 30px;
+}
+
+/* ===== Overlay Base Style ===== */
+.overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  display: none;
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+}
+
+.overlay.active {
+  display: flex;
+}
+
+/* ===== Overlay Content Windows ===== */
+.overlay .content-box {
+  background: #fff;
+  color: #111;
+  max-width: 600px;
+  width: 90%;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 0 40px rgba(0,0,0,0.3);
+  animation: slideIn 0.6s ease;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.footer {
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(12px);
+  color: #fefae0;
+  padding: 3rem 2rem;
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  margin-top: 5rem;
+  border-radius: 2rem 2rem 0 0;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.footer p {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: var(--accent-color);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.footer .social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer .social-links a {
+  color: var(--accent-color);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1rem 2rem;
+  border-radius: 100px;
+  font-weight: 600;
+  text-decoration: none;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 12px rgba(244, 195, 99, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.footer .social-links a:hover {
+  background: var(--accent-color);
+  color: #111;
+  box-shadow: 0 0 25px var(--accent-color), 0 0 45px var(--primary-color);
+}
+
+:root {
+  --accent-color: #fefae0;
+  --primary-color: #bc6c25;
+}
+
+/* ===== NEW CENTERED NAVIGATION BUTTON STYLES ===== */
+.centered-nav-buttons {
+  position: absolute;
+  bottom: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 3rem;
+  z-index: 100;
+  text-align: center;
+}
+
+.centered-nav-buttons button {
+  font-size: 1.8rem;
+  background: transparent;
+  color: #111;
+  border: none;
+  padding: 0;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.centered-nav-buttons button:hover {
+  opacity: 0.8;
+}
+
+/* Updated Circle around the O's */
+.centered-circle {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background: white;
+  border-radius: 50%;
+  color: black;
+  font-weight: bold;
+  margin: 0 5px;
+  font-size: 1.2rem;
+}
+
+/* Adjust the hero section to accommodate centered buttons */
+.hero-section {
+  justify-content: space-between;
+  padding-bottom: 8rem;
+}
+/* ===== VERTICAL CENTERED NAVIGATION BUTTONS ===== */
+.centered-nav-buttons {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  z-index: 100;
+  text-align: center;
+  align-items: center;
+}
+
+.centered-nav-buttons button {
+  font-size: 3rem; /* Bigger text */
+  background: transparent;
+  color: #111;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.centered-nav-buttons button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* Bigger Circle around the O's */
+.centered-circle {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px; /* Bigger circle */
+  height: 40px; /* Bigger circle */
+  background: white;
+  border-radius: 50%;
+  color: black;
+  font-weight: bold;
+  margin: 0 8px; /* More spacing */
+  font-size: 1.5rem; /* Bigger text inside circle */
+}
+/* ===== SCROLLABLE VERTICAL CENTERED NAVIGATION ===== */
+.centered-nav-buttons {
+  position: absolute; /* Changed from fixed to absolute */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  z-index: 100;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  padding: 2rem 0;
+  margin-top: 50vh; /* Push it down by half viewport height */
+  margin-bottom: 50vh; /* Add space below to allow scrolling */
+}
+
+/* Rest of your existing styles remain the same */
+.centered-nav-buttons button {
+  font-size: 3rem;
+  background: transparent;
+  color: #111;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.centered-nav-buttons button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.centered-circle {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  color: black;
+  font-weight: bold;
+  margin: 0 8px;
+  font-size: 1.5rem;
+}
+/* ===== LARGE VERTICAL CENTERED NAVIGATION BUTTONS ===== */
+.centered-nav-buttons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem; /* Increased gap between buttons */
+  z-index: 100;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  padding: 3rem 0; /* More padding */
+}
+
+.centered-nav-buttons button {
+  font-size: 4.5rem; /* Much larger text (about 72px) */
+  background: transparent;
+  color: #111;
+  border: none;
+  padding: 1rem 2rem; /* More padding */
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 4px; /* More letter spacing */
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1); /* Subtle text shadow */
+}
+
+.centered-nav-buttons button:hover {
+  transform: scale(1.08); /* Slightly larger hover effect */
+  opacity: 0.9;
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.15); /* Enhanced shadow on hover */
+}
+
+/* Extra Large Circle around the O's */
+.centered-circle {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px; /* Much bigger circle */
+  height: 60px; /* Much bigger circle */
+  background: white;
+  border-radius: 50%;
+  color: black;
+  font-weight: bold;
+  margin: 0 12px; /* More spacing around circles */
+  font-size: 2.5rem; /* Larger text inside circle */
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1); /* Added shadow */
+  transition: all 0.3s ease;
+}
+
+/* Circle hover effect */
+.centered-nav-buttons button:hover .centered-circle {
+  transform: scale(1.1);
+  background: #f4c363;
+  color: #111;
+}
